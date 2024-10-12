@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="MainWindow">
+    <qresource prefix="/MainWindow">
+        <file>self-motivation-online-education-learning-success.png</file>
     </qresource>
 </RCC>
