@@ -105,7 +105,7 @@ void MainWindow::do_period_Btn_clicked() {
    
     if (std_src.empty()) {
 		//为防止多次输入"."或者出现形如"16.88.66"这样子不合规的数字
-        ui->period_Btn->setEnabled(false);
+        //ui->period_Btn->setEnabled(false);
         return;
     }
     //为防止输入".87"之类的数字
@@ -229,6 +229,9 @@ void MainWindow::do_inverse_Btn_clicked()
         QMessageBox::warning(this, "Warning", "请先输入数字", QMessageBox::Ok, QMessageBox::NoButton);
         return;
     }
+	if (src_str[0] == '-') {
+		is_lowdown = true;
+	}
     //符合先输入数字再按操作符号格式
     char str_1 = '+', str_2 = ' - ', str_3 = '×', str_4 = '÷';
     if (std_str[std_str.length() - 1] == str_1 ||
@@ -252,9 +255,15 @@ void MainWindow::do_inverse_Btn_clicked()
     std::stringstream ss(tacket);   //记得clear（如果你要在未结束的时候多次使用）
     double tacket_num = 0;
     ss >> tacket_num;
-    double result = 1.0 / tacket_num;
+	double result = 0;
+	if (is_lowdown) {
+		result = -1.0 / tacket_num;
+	}
+	else {
+		result = 1.0 / tacket_num;
+	}
     ss.clear();
-    ss << std::fixed << std::setprecision(2) << result;
+    ss << std::fixed << std::setprecision(6) << result;
     
     //入数组
     //先别入数组，因为在等于号这里会处理的
@@ -316,7 +325,7 @@ void MainWindow::do_square_Btn_clicked()
 	ss >> tacket_num;
     double result = tacket_num * tacket_num;
 	ss.clear();
-	ss << std::fixed << std::setprecision(2) << result;
+	ss << std::fixed << std::setprecision(6) << result;
 	
     //入数组
 	//先别入数组，因为在等于号这里会处理的
@@ -381,7 +390,7 @@ void MainWindow::do_sqrt_Btn_clicked()
 	}
 	//开平方操作操作
     double result = std::sqrt(tacket_num);
-	ss << std::fixed << std::setprecision(2) << result;
+	ss << std::fixed << std::setprecision(6) << result;
 	
     //入数组
 	//先别入数组，因为在等于号这里会处理的
@@ -443,7 +452,7 @@ void MainWindow::do_percentage_Btn_clicked()
 	
 	//开平方操作操作
     double result = tacket_num / 100.0;
-	ss << std::fixed << std::setprecision(2) << result;
+	ss << std::fixed << std::setprecision(6) << result;
 
 	//入数组
 	//先别入数组，因为在等于号这里会处理的
@@ -517,6 +526,8 @@ void MainWindow::do_sign_Btn_clicked()
 			is_plus = true;
         }
         ui->lineEdit->setText(src_str);
+		QPushButton* btn = static_cast<QPushButton*>(sender());
+		ui->statusBar->showMessage(btn->text() + "  button been clicked...");
         return;
 	}
     else {
@@ -611,7 +622,7 @@ void MainWindow::process_mul_div(std::vector<std::string>& src_stack, std::vecto
             }
             //更新数组
             std::stringstream ss;
-            ss << std::fixed << std::setprecision(2) << result;
+            ss << std::fixed << std::setprecision(6) << result;
             src_stack[i] = ss.str();
             ss.clear();
             //删除右侧的数字
@@ -668,7 +679,7 @@ void MainWindow::do_result_Btn_clicked() {
 		if (is_lowdown) {
 			result = result * (-1.0);
 		}
-        ui->lineEdit->setText(QString::number(result, 'f', 2));
+        ui->lineEdit->setText(QString::number(result, 'f', 6));
 		QPushButton* btn = static_cast<QPushButton*>(sender());
 		ui->statusBar->showMessage(btn->text() + "  button been clicked...");
     }
