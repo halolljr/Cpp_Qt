@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/Fourth_Demo_notepad">
+        <file>images/auto_line_icon.png</file>
+        <file>images/backward_icon.png</file>
+        <file>images/copy_icon.png</file>
+        <file>images/cut_icon.png</file>
+        <file>images/font_icon.png</file>
+        <file>images/forward_icon .png</file>
+        <file>images/line_view_icon.png</file>
+        <file>images/new_icon.png</file>
+        <file>images/open_icon.png</file>
+        <file>images/paste_icon.png</file>
+        <file>images/replace_icon.png</file>
+        <file>images/save_icon.png</file>
+        <file>images/save_to_icon.png</file>
+        <file>images/search_icon.png</file>
+        <file>images/status_icon.png</file>
+        <file>images/tool_icon.png</file>
+        <file>images/about_icon.png</file>
+    </qresource>
+</RCC>

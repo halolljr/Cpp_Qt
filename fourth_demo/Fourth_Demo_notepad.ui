@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Fourth_Demo_notepadClass</class>
+ <widget class="QMainWindow" name="Fourth_Demo_notepadClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>503</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>文本编辑器</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextBesideIcon</enum>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>1</number>
+    </property>
+    <property name="topMargin">
+     <number>1</number>
+    </property>
+    <property name="rightMargin">
+     <number>1</number>
+    </property>
+    <property name="bottomMargin">
+     <number>1</number>
+    </property>
+    <item>
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="action_new"/>
+    <addaction name="action_Open"/>
+    <addaction name="action_Save"/>
+    <addaction name="action_save_to"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_E">
+    <property name="title">
+     <string>编辑(&amp;E)</string>
+    </property>
+    <addaction name="action_backward"/>
+    <addaction name="action_forward"/>
+    <addaction name="action_cut"/>
+    <addaction name="action_copy"/>
+    <addaction name="action_paste"/>
+    <addaction name="separator"/>
+    <addaction name="action_find"/>
+    <addaction name="action_repalce"/>
+    <addaction name="separator"/>
+    <addaction name="action_select_all"/>
+   </widget>
+   <widget class="QMenu" name="menu_O">
+    <property name="title">
+     <string>格式(&amp;O)</string>
+    </property>
+    <addaction name="action_autoline"/>
+    <addaction name="action_lineview"/>
+    <addaction name="action_font"/>
+    <addaction name="separator"/>
+    <addaction name="action_font_color"/>
+    <addaction name="action_font_backG"/>
+    <addaction name="separator"/>
+    <addaction name="action_EditG"/>
+   </widget>
+   <widget class="QMenu" name="menu_V">
+    <property name="title">
+     <string>查看(&amp;V)</string>
+    </property>
+    <addaction name="action_tool"/>
+    <addaction name="action_status"/>
+   </widget>
+   <widget class="QMenu" name="menu_H">
+    <property name="title">
+     <string>帮助(&amp;H)</string>
+    </property>
+    <addaction name="action_about"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_E"/>
+   <addaction name="menu_O"/>
+   <addaction name="menu_V"/>
+   <addaction name="menu_H"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_new"/>
+   <addaction name="action_Open"/>
+   <addaction name="action_Save"/>
+   <addaction name="action_save_to"/>
+   <addaction name="separator"/>
+   <addaction name="action_backward"/>
+   <addaction name="action_forward"/>
+   <addaction name="action_cut"/>
+   <addaction name="action_copy"/>
+   <addaction name="action_paste"/>
+   <addaction name="separator"/>
+   <addaction name="action_find"/>
+   <addaction name="action_repalce"/>
+   <addaction name="separator"/>
+   <addaction name="action_font"/>
+   <addaction name="action_lineview"/>
+   <addaction name="action_autoline"/>
+   <addaction name="separator"/>
+   <addaction name="action_tool"/>
+   <addaction name="action_status"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_new">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/new_icon.png</normaloff>:/Fourth_Demo_notepad/images/new_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>新建(&amp;N)</string>
+   </property>
+   <property name="toolTip">
+    <string>新建</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/open_icon.png</normaloff>:/Fourth_Demo_notepad/images/open_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>打开(&amp;O)</string>
+   </property>
+   <property name="toolTip">
+    <string>打开</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_Save">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/save_icon.png</normaloff>:/Fourth_Demo_notepad/images/save_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>保存(&amp;S)</string>
+   </property>
+   <property name="toolTip">
+    <string>保存</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_save_to">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/save_to_icon.png</normaloff>:/Fourth_Demo_notepad/images/save_to_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>另存为(&amp;A)</string>
+   </property>
+   <property name="toolTip">
+    <string>文件另存为</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>退出(&amp;X)</string>
+   </property>
+   <property name="toolTip">
+    <string>退出</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="action_backward">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/backward_icon.png</normaloff>:/Fourth_Demo_notepad/images/backward_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>撤销(&amp;U)</string>
+   </property>
+   <property name="toolTip">
+    <string>撤销</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="action_cut">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/cut_icon.png</normaloff>:/Fourth_Demo_notepad/images/cut_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>剪切(&amp;T)</string>
+   </property>
+   <property name="toolTip">
+    <string>剪切</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="action_copy">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/copy_icon.png</normaloff>:/Fourth_Demo_notepad/images/copy_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>复制(&amp;C)</string>
+   </property>
+   <property name="toolTip">
+    <string>复制</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="action_paste">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/paste_icon.png</normaloff>:/Fourth_Demo_notepad/images/paste_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>粘贴(&amp;P)</string>
+   </property>
+   <property name="toolTip">
+    <string>粘贴</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="action_find">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/search_icon.png</normaloff>:/Fourth_Demo_notepad/images/search_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>查找(&amp;F)</string>
+   </property>
+   <property name="toolTip">
+    <string>查找</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="action_repalce">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/replace_icon.png</normaloff>:/Fourth_Demo_notepad/images/replace_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>替换(&amp;R)</string>
+   </property>
+   <property name="toolTip">
+    <string>替换</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="action_font">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/font_icon.png</normaloff>:/Fourth_Demo_notepad/images/font_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>字体(&amp;F)</string>
+   </property>
+   <property name="toolTip">
+    <string>字体</string>
+   </property>
+  </action>
+  <action name="action_autoline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/auto_line_icon.png</normaloff>:/Fourth_Demo_notepad/images/auto_line_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>自动换行(&amp;L)</string>
+   </property>
+   <property name="toolTip">
+    <string>自动换行</string>
+   </property>
+  </action>
+  <action name="action_tool">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/tool_icon.png</normaloff>:/Fourth_Demo_notepad/images/tool_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>工具栏(&amp;T)</string>
+   </property>
+   <property name="toolTip">
+    <string>工具栏</string>
+   </property>
+  </action>
+  <action name="action_status">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/status_icon.png</normaloff>:/Fourth_Demo_notepad/images/status_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>状态栏(&amp;S)</string>
+   </property>
+   <property name="toolTip">
+    <string>状态栏</string>
+   </property>
+  </action>
+  <action name="action_forward">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/forward_icon .png</normaloff>:/Fourth_Demo_notepad/images/forward_icon .png</iconset>
+   </property>
+   <property name="text">
+    <string>恢复(&amp;)</string>
+   </property>
+   <property name="toolTip">
+    <string>恢复</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Z</string>
+   </property>
+  </action>
+  <action name="action_select_all">
+   <property name="text">
+    <string>全选(&amp;A)</string>
+   </property>
+   <property name="toolTip">
+    <string>全选</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="action_lineview">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/line_view_icon.png</normaloff>:/Fourth_Demo_notepad/images/line_view_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>显示行号</string>
+   </property>
+   <property name="toolTip">
+    <string>显示行号</string>
+   </property>
+  </action>
+  <action name="action_font_color">
+   <property name="text">
+    <string>字体颜色</string>
+   </property>
+   <property name="toolTip">
+    <string>字体颜色</string>
+   </property>
+  </action>
+  <action name="action_font_backG">
+   <property name="text">
+    <string>字体背景色</string>
+   </property>
+   <property name="toolTip">
+    <string>字体背景色</string>
+   </property>
+  </action>
+  <action name="action_EditG">
+   <property name="text">
+    <string>编辑器背景色</string>
+   </property>
+  </action>
+  <action name="action_about">
+   <property name="icon">
+    <iconset resource="Fourth_Demo_notepad.qrc">
+     <normaloff>:/Fourth_Demo_notepad/images/about_icon.png</normaloff>:/Fourth_Demo_notepad/images/about_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>关于(&amp;A)</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="Fourth_Demo_notepad.qrc"/>
+ </resources>
+ <connections/>
+</ui>
